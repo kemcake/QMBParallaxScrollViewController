@@ -217,6 +217,9 @@
         CGSize size = CGSizeMake(self.view.frame.size.width,MAX(((UIScrollView *)_foregroundView).contentSize.height,_foregroundView.frame.size.height) + _topHeight);
         
         self.foregroundScrollView.contentSize = size;
+        CGRect frame = [self.foregroundView superview].frame;
+        frame.size.width = self.view.frame.size.width;
+        [self.foregroundView superview].frame = frame;
     }else {
         self.foregroundView.frame = CGRectMake(0.0f,
                                                _topHeight,
